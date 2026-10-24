@@ -42,3 +42,33 @@ main{max-width:1600px;padding:12px 20px}.intro{padding:15px 0}.intro h1{font-siz
 }
 @media(max-width:390px){.stats-row{gap:5px}.objective{font-size:0}.objective span:first-child:before{content:'⌂';font-size:11px}.objective span:last-child:before{content:'✦';font-size:11px}.vitals b{font-size:10px}}
 
+
+/* Let the living scene remain visible behind the moon's gifts. */
+.upgrade-panel{background:#0b202a9c;backdrop-filter:none}
+.upgrade-card{background:linear-gradient(150deg,#315c50f2,#1b3542f2)}
+.cards-arriving{animation:veil-in .16s ease-out both}
+.cards-arriving .upgrade-card{animation:gift-in .19s cubic-bezier(.2,.8,.2,1) both}
+.cards-arriving .upgrade-card:nth-child(2){animation-delay:.025s}
+.cards-arriving .upgrade-card:nth-child(3){animation-delay:.05s}
+.gamewrap:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:7;opacity:0;border-radius:inherit;box-shadow:inset 0 0 65px 20px #c8f6b666}
+.gamewrap.levelup-arriving:after{animation:moon-arrives .2s ease-out both}
+.gamewrap.gift-chosen:after{animation:gift-glow .3s ease-out both}
+.pause-actions{position:absolute;z-index:5;top:60%;left:50%;transform:translateX(-50%);text-align:center}
+.pause-actions button{min-width:150px;padding:10px 24px}
+@keyframes veil-in{from{opacity:0}to{opacity:1}}
+@keyframes gift-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes moon-arrives{from{opacity:0}to{opacity:1}}
+@keyframes gift-glow{from{opacity:.7}to{opacity:0}}
+.support-options{align-items:stretch;gap:10px}
+.support-options .support-item{display:flex;flex-direction:column;align-items:center;padding:10px 8px;background:#d9f5ce08;min-width:0}
+.support-art{display:grid;place-items:center;position:relative;width:100%;height:120px;flex-shrink:0}
+.support-art img{position:relative;grid-area:1/1;display:block;width:100%;height:100%;object-fit:contain;z-index:1}
+.support-fallback{grid-area:1/1;font:44px Jua,sans-serif;color:#edd79c}
+.support-art.loaded .support-fallback{visibility:hidden}
+.support-art img[hidden]{display:none}
+.support-name{font-size:12px;line-height:1.6;min-height:39px;display:flex;align-items:center;justify-content:center;word-break:keep-all}
+.support-options strong{font-size:18px;margin:8px 0}.support-options small{font-size:10px}
+@media(max-height:440px) and (max-width:900px){.upgrade-panel{padding:52px 12px 8px}.upgrade-head h2{font-size:22px;margin:3px 0}.upgrade-head .badge{font-size:9px}.upgrade-head p{font-size:10px;margin:4px 0 8px}.upgrade-card{min-height:138px;padding:10px}.card-icon{font-size:22px;margin:3px 0}.upgrade-card strong{font-size:14px}.card-desc{font-size:10px;margin-top:5px}.upgrade-card>small{padding-top:6px}.choice-hint{margin-top:5px;font-size:9px}.journal-sheet{max-height:94dvh;padding:12px}.journal-sheet h2{font-size:22px;margin:5px 0}.journal-sheet p{font-size:11px;margin:6px 0}.support-art{height:76px}.support-options{margin:10px 0}.support-name{min-height:34px}.support-options strong{margin:5px 0}}
+@media(max-width:420px){.support-options{gap:5px}.support-options .support-item{padding:8px 4px}.support-art{height:92px}.support-name{font-size:11px;min-height:53px}.support-options strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.cards-arriving,.cards-arriving .upgrade-card,.gamewrap.levelup-arriving:after,.gamewrap.gift-chosen:after{animation-duration:.01s;animation-delay:0s}}
+
